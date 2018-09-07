@@ -1,24 +1,47 @@
 # terraform-cloud GCP
 
+## Setup A Google Cloud Project
 
-## Setup
+The first thing we need to do is to create a new project at [Google Project Console][https://console.cloud.google.com/project], for example:
 
-You need to create a service account to allow terraform to deploy resources : 
-https://cloud.google.com/iam/docs/service-accounts
+Project Name | Project ID
+------------ | ----------
+ProjectXXXX | XXXXX-20160301
 
-```
-gcloud iam service-accounts create ACCOUNT_NAME --display-name "Some Account Name"
-gcloud iam service-accounts keys create "terraform.key.json" --iam-account "ACCOUNT_NAME@PROJECT_ID.iam.gserviceaccount.com"
-gcloud projects add-iam-policy-binding PROJECT_ID --member 'serviceAccount:ACCOUNT_NAME@PROJECT_ID.iam.gserviceaccount.com' --role 'roles/owner'
-```
-You must get the file `account.json` before running which would contain your service Account Key file.
+### Get Authentication JSON File
 
-This contains your authentication required for Terraform to talk to the Google API.
+Authenticating with Google Cloud services requires a JSON file which is called the _account file_ in Terraform.
 
-You can get it under 
+This file is downloaded directly from the [Google Developers Console][https://console.cloud.google.com/project]:
 
-`Google Cloud Platform -> API Manager -> Credentials -> Create Credentials -> Service account key.`
+1. Click the menu button in the top left corner, and navigate to "Permissions", then "Service accounts", and finally "Create service account".
 
-For the Key type field chose JSON. Put the downloaded file right were your Terraform config file is and name it `account.json`.
+1. Provide **XXXX-20160301** as the name and ID in the corresponding fields, select "Furnish a new private key", and select "JSON" as the key type.
 
-If you are using the gcs as the backend, you will need to give it the `Storage Admin` role for the `storage.buckets.create` permission.
+1. Clicking "Create" will download your credentials.
+
+1. Rename the downloaded json file to **account.json**
+
+### Enable Google Cloud APIs for ProjectXXXX
+
+To use and control google cloud with command line tools, we need to enable Google Cloud APIs.
+
+Go to [Google Cloud API Manager][https://console.cloud.google.com/apis] and enable Google Cloud APIs for ProjectXXXX:
+
+* Compute Engine API
+* Cloud Storage Service
+* Cloud Deployment Manager API
+* Cloud DNS API
+* Cloud Monitoring API
+* Cloud Storage JSON API
+* Compute Engine Instance Group Manager API
+* Compute Engine Instance Groups API
+* Prediction API
+### Launch Creation
+`terraform init`
+`terraform plan`
+`terraform apply -auto-approve`
+
+### Destroy environnement
+`terraform destroy -auto-approve`
+
