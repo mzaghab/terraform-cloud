@@ -1,33 +1,43 @@
 variable "google_project_id" { 
-    default = "test-20160301"
+    default = "terraform-215711"
 }
 
 variable "account_file" {
     default = "account.json"
 }
 
-variable "image" {
-    default = "coreos-stable-835-9-0-v20151208"
+variable "instance_count" {
+    default = "3"
 }
-
 variable "machine_type" {
     default = "n1-standard-1"
 }
+variable "instance_name" {
+    default = "my-instance"
+}
+variable "os" {
+    default = "centos-7-v20170816"
+}
+
 variable "region" {
-    default = "us-central1"
+    default = "europe-west1"
+}
+
+variable "zone" {
+    default = "europe-west1-b"
 }
 
 variable "zones" {
     default = {
-        zone0 = "us-central1-a"
-        zone1 = "us-central1-b"
-        zone2 = "us-central1-c"
-        zone3 = "us-central1-f"
-        zone4 = "us-central1-a"
-        zone5 = "us-central1-b"
-        zone6 = "us-central1-c"
-        zone7 = "us-central1-f"
-        zone8 = "us-central1-a"
-        zone9 = "us-central1-b"
+        zone0 = "europe-west1-b"
+        zone1 = "europe-west1-c"
+        zone2 = "europe-west1-d"
     }
+}
+
+variable "network" {
+  default     = "my-network"
+}
+variable "cidr" {
+  default     = "192.168.16.0/26"
 }

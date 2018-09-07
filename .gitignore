@@ -1,0 +1,4 @@
+gcp/account.json
+gcp/.terraform/
+gcp/terraform.tfstate*
+
