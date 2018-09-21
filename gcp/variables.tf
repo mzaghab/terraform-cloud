@@ -41,3 +41,11 @@ variable "network" {
 variable "cidr" {
   default     = "192.168.16.0/26"
 }
+
+variable "user" {
+  default     = "terraform"
+}
+
+variable "ssh_pub_key" {
+  default     = "/Users/mounir/.ssh/id_rsa.pub"
+}

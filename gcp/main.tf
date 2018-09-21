@@ -24,6 +24,17 @@ resource "google_compute_instance" "my-instance" {
     hostname = "TODO"
   }
 
+# connection {
+#    user = "${coalesce(var.gcp_ssh_user, module.dcos-tested-gcp-oses.user)}"
+#    private_key = "${local.private_key}"
+#    agent = "${local.agent}"
+#  }
+
+
+  metadata {
+    ssh-keys = "${var.user}:${file("${var.ssh_pub_key}")}"
+  }
+
   network_interface {
     subnetwork = "${google_compute_subnetwork.my_subnetwork.name}"
 
