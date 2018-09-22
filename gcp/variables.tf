@@ -7,10 +7,12 @@ variable "account_file" {
 }
 
 variable "instance_count" {
-    default = "3"
+    default = "1"
 }
 variable "machine_type" {
-    default = "n1-standard-1"
+    default = "n1-standard-1" //1vcpu 3,75G (24,67 $ par mois estimé / Tarif horaire effectif 0,034 $ )
+//    default = "n1-standard-2" //2vcpu 7,5G (48,95 $ par mois estimé / Tarif horaire effectif 0,067 $)
+//    default = "n1-standard-4" //4vcpu 15G(97,49 $ par mois estimé / Tarif horaire effectif 0,134 $)    
 }
 variable "instance_name" {
     default = "my-instance"
@@ -36,7 +38,7 @@ variable "zones" {
 }
 
 variable "network" {
-  default     = "my-network"
+  default     = "my-network-mza"
 }
 variable "cidr" {
   default     = "192.168.16.0/26"
@@ -47,5 +49,5 @@ variable "user" {
 }
 
 variable "ssh_pub_key" {
-  default     = "/Users/mounir/.ssh/id_rsa.pub"
+  default     = "~/.ssh/id_rsa.pub"
 }
