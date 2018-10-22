@@ -22,25 +22,10 @@ This file is downloaded directly from the [Google Developers Console][https://co
 
 1. Rename the downloaded json file to **account.json**
 
-### Enable Google Cloud APIs for ProjectXXXX
-
-To use and control google cloud with command line tools, we need to enable Google Cloud APIs.
-
-Go to [Google Cloud API Manager][https://console.cloud.google.com/apis] and enable Google Cloud APIs for ProjectXXXX:
-
-* Compute Engine API
-* Cloud Storage Service
-* Cloud Deployment Manager API
-* Cloud DNS API
-* Cloud Monitoring API
-* Cloud Storage JSON API
-* Compute Engine Instance Group Manager API
-* Compute Engine Instance Groups API
-* Prediction API
 ### Launch Creation
-`terraform init`
-`terraform plan`
-`terraform apply -auto-approve`
+- `terraform init`
+- `terraform plan`
+- `terraform apply -auto-approve`
 
 ### Destroy environnement
 `terraform destroy -auto-approve`
