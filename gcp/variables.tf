@@ -3,7 +3,7 @@ variable "google_project_id" {
 }
 
 variable "account_file" {
-    default = "account.json"
+    default = "~/.gce/account.json"
 }
 
 variable "instance_type_n1_std1" {
